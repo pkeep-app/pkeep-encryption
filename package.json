@@ -1,0 +1,40 @@
+{
+  "name": "@pkeep/encryption",
+  "version": "1.0.0",
+  "description": "Auditable encryption core for pKeep — AES-256-GCM vault encryption with MetaMask key derivation and IPFS storage adapter.",
+  "keywords": ["password-manager", "encryption", "metamask", "ipfs", "web3", "aes-256-gcm"],
+  "author": "pKeep <hello@pkeep.app>",
+  "license": "MIT",
+  "homepage": "https://pkeep.app",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pkeep-app/pkeep-encryption"
+  },
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": ["dist", "README.md", "LICENSE"],
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "tsc --noEmit",
+    "prepublishOnly": "npm run test && npm run build"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0",
+    "vitest": "^1.6.0",
+    "@types/node": "^20.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
