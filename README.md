@@ -91,7 +91,7 @@ MetaMask wallet
                                       │
                                       │  uploadVault()
                                       ▼
-                                  IPFS / Lighthouse
+                                  IPFS / Filecoin
                                (only encrypted bytes)
 ```
 
