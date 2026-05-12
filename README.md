@@ -61,7 +61,7 @@ const key = await deriveKeyFromSignature({
 // 3. Encrypt the vault
 const encrypted = await encryptVault(vault, key);
 
-// 4. Upload to IPFS (Lighthouse)
+// 4. Upload to IPFS
 const { cid } = await uploadVault(encrypted, lighthouseApiKey);
 // Save `cid` to localStorage — it's your vault's address on IPFS
 
@@ -91,7 +91,7 @@ MetaMask wallet
                                       │
                                       │  uploadVault()
                                       ▼
-                                  IPFS / Lighthouse
+                                  IPFS / Filecoin
                                (only encrypted bytes)
 ```
 
