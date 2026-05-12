@@ -1,7 +1,7 @@
 # @pkeep/encryption
 
 [![CI](https://github.com/pkeep-app/pkeep-encryption/actions/workflows/ci.yml/badge.svg)](https://github.com/pkeep-app/pkeep-encryption/actions)
-[![npm version](https://badge.fury.io/js/%40pkeep%2Fencryption.svg)](https://www.npmjs.com/package/@pkeep/encryption)
+[![npm version](https://img.shields.io/npm/v/@pkeep/encryption?color=green&label=npm%20package)](https://www.npmjs.com/package/@pkeep/encryption)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 **The auditable encryption core of [pKeep](https://pkeep.app) — Dein dezentraler Passwort-Speicher.**
@@ -12,7 +12,7 @@ This repository contains the full source code for pKeep's vault encryption, key 
 
 - **Derives a deterministic AES-256-GCM key** from your MetaMask signature using HKDF (NIST SP 800-56C). Your key never leaves your device.
 - **Encrypts your vault** (passwords, seed phrases, notes) with AES-256-GCM (NIST SP 800-38D) — the same standard used by banks and governments.
-- **Uploads and downloads** the encrypted vault to/from IPFS. The decentral Storage sees only encrypted bytes — never your plaintext.
+- **Uploads and downloads** the encrypted vault to/from IPFS via [Lighthouse](https://lighthouse.storage). Lighthouse sees only encrypted bytes — never your plaintext.
 
 ## Security properties
 
@@ -91,7 +91,7 @@ MetaMask wallet
                                       │
                                       │  uploadVault()
                                       ▼
-                                  IPFS / Filecoin
+                                  IPFS / Lighthouse
                                (only encrypted bytes)
 ```
 
