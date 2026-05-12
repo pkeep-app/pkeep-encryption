@@ -62,7 +62,7 @@ export async function encryptVault(
   const ciphertext = await crypto.subtle.encrypt(
     { name: 'AES-GCM', iv },
     key,
-    plaintextBytes
+    plaintextBytes.buffer as ArrayBuffer
   );
 
   const checksum = await sha256Hex(plaintext);
@@ -107,9 +107,9 @@ export async function decryptVault(
   let plaintextBytes: ArrayBuffer;
   try {
     plaintextBytes = await crypto.subtle.decrypt(
-      { name: 'AES-GCM', iv },
+      { name: 'AES-GCM', iv: iv.buffer as ArrayBuffer },
       key,
-      ciphertext
+      ciphertext.buffer as ArrayBuffer
     );
   } catch {
     // AES-GCM throws a generic DOMException on auth-tag failure.

@@ -45,7 +45,7 @@ export async function deriveKeyFromSignature(
   // 2. Import raw signature bytes as HKDF key material
   const keyMaterial = await crypto.subtle.importKey(
     'raw',
-    sigBytes,
+    sigBytes.buffer as ArrayBuffer,
     { name: 'HKDF' },
     false,             // not extractable
     ['deriveKey']
