@@ -4,7 +4,7 @@
 [![npm version](https://img.shields.io/npm/v/@pkeep/encryption?color=green&label=npm%20package)](https://www.npmjs.com/package/@pkeep/encryption)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-**The auditable encryption core of [pKeep](https://pkeep.app) — Dein dezentraler Passwort-Speicher.**
+**The auditable encryption core of [pKeep](https://pkeep.app) — Your decentral Password-Vault.**
 
 This repository contains the full source code for pKeep's vault encryption, key derivation, and IPFS storage adapter. It is published openly so that anyone — security researchers, auditors, or curious developers — can verify exactly how pKeep protects your data.
 
