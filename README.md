@@ -117,8 +117,6 @@ The pKeep application layer — user interface, sync logic, subscription managem
 
 We invite security researchers to review this code. If you find a vulnerability, please report it responsibly to **security@pkeep.app**.
 
-A bug bounty program is available — see [pkeep.app/security](https://pkeep.app/security) for details.
-
 ## License
 
 MIT — see [LICENSE](LICENSE).
