@@ -15,6 +15,28 @@
 
 import type { Vault, EncryptedVault } from './types.js';
 
+// ─── Minimal types (storage and vault structure are private) ─────────────
+
+/** The plaintext vault — structure is intentionally kept private */
+export interface Vault {
+  version: number;
+  entries: unknown[];
+  seedPhrases: unknown[];
+  lastModified: string;
+}
+
+/** The encrypted vault as stored on IPFS */
+export interface EncryptedVault {
+  /** pKeep format version */
+  v: number;
+  /** Base64-encoded IV (12 bytes for AES-GCM) */
+  iv: string;
+  /** Base64-encoded AES-256-GCM ciphertext + auth tag */
+  data: string;
+  /** SHA-256 checksum of plaintext (hex) */
+  checksum: string;
+}
+
 const VAULT_VERSION = 1;
 const IV_LENGTH_BYTES = 12; // 96 bits — NIST recommended for AES-GCM
 

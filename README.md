@@ -4,15 +4,20 @@
 [![npm version](https://img.shields.io/npm/v/@pkeep/encryption?color=green&label=npm%20package)](https://www.npmjs.com/package/@pkeep/encryption)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-**The auditable encryption core of [pKeep](https://pkeep.app) — Your decentral Password-Vault.**
+**The auditable encryption core of [pKeep](https://pkeep.app) — Dein dezentraler Passwort-Speicher.**
 
 This repository contains the full source code for pKeep's vault encryption, key derivation, and IPFS storage adapter. It is published openly so that anyone — security researchers, auditors, or curious developers — can verify exactly how pKeep protects your data.
 
-## What this library does
+## What this package contains
 
-- **Derives a deterministic AES-256-GCM key** from your MetaMask signature using HKDF (NIST SP 800-56C). Your key never leaves your device.
-- **Encrypts your vault** (passwords, seed phrases, notes) with AES-256-GCM (NIST SP 800-38D) — the same standard used by banks and governments.
-- **Uploads and downloads** the encrypted vault to/from IPFS. Decentral Storage sees only encrypted bytes — never your plaintext.
+| File | Public | Purpose |
+|---|---|---|
+| `keys.ts` | ✅ | Key derivation from MetaMask signature |
+| `encryption.ts` | ✅ | AES-256-GCM encrypt / decrypt |
+| Storage adapter | 🔒 private | Lighthouse / IPFS integration |
+| Vault structure | 🔒 private | Application data model |
+
+This package intentionally exposes **only the cryptographic primitives**. Storage logic and vault structure are part of the private application layer.
 
 ## Security properties
 
@@ -61,7 +66,7 @@ const key = await deriveKeyFromSignature({
 // 3. Encrypt the vault
 const encrypted = await encryptVault(vault, key);
 
-// 4. Upload to IPFS
+// 4. Upload to IPFS (Lighthouse)
 const { cid } = await uploadVault(encrypted, lighthouseApiKey);
 // Save `cid` to localStorage — it's your vault's address on IPFS
 
@@ -91,7 +96,7 @@ MetaMask wallet
                                       │
                                       │  uploadVault()
                                       ▼
-                                  IPFS / Filecoin
+                                  IPFS / Lighthouse
                                (only encrypted bytes)
 ```
 
@@ -116,6 +121,8 @@ The pKeep application layer — user interface, sync logic, subscription managem
 ## Auditing
 
 We invite security researchers to review this code. If you find a vulnerability, please report it responsibly to **security@pkeep.app**.
+
+A bug bounty program is available — see [pkeep.app/security](https://pkeep.app/security) for details.
 
 ## License
 

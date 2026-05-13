@@ -13,7 +13,7 @@ import {
   hexToBytes,
   bytesToHex,
 } from '../src/index.js';
-import type { Vault } from '../src/index.js';
+import type { Vault } from '../src/encryption.js';
 
 // ─── Fixtures ────────────────────────────────────────────────────────────
 

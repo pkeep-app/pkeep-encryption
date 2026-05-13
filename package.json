@@ -1,6 +1,6 @@
 {
   "name": "@pkeep/encryption",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Auditable encryption core for pKeep — AES-256-GCM vault encryption with MetaMask key derivation and IPFS storage adapter.",
   "keywords": ["password-manager", "encryption", "metamask", "ipfs", "web3", "aes-256-gcm"],
   "author": "pKeep <hello@pkeep.app>",
